@@ -9,7 +9,7 @@ export default function Target({ data, selectFavorite, favorite = false }) {
 
   return (
     <div className="w-[220px] bg-[var(--bg-color2)] rounded-lg shadow-md overflow-hidden">
-      <Link href={`/details/${data.id}`}>
+      <Link href={isAuth ? `/details/${data.id}` : "/"}>
         <img
           className="w-full h-64 object-cover"
           src={`${url_image}${data.poster_path}`}

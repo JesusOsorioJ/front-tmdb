@@ -38,7 +38,7 @@ export default function Header({ setView, view, buttons = true }) {
         )}
       </div>
       <div className="flex flex-col sm:flex-row gap-4 items-center">
-        {isAuth ? (
+        {isAuth && buttons ? (
           <div className="flex gap-3 items-center">
             <p>{email}</p>
             <button

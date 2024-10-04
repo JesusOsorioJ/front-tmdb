@@ -5,11 +5,13 @@ import { loadingStore, useAuthStore } from "@/store";
 import { Favorite, Porcentage } from "@/components/Icons";
 import Header from "@/components/Header";
 import { getMovieById, setMovieFavorite } from "@/api/favorites";
+import { useRouter } from "next/navigation";
 
 export default function PageLogout({ params }) {
   const [data, setData] = useState({ results: [] });
   const { setLoading } = loadingStore((state) => state);
   const { isAuth } = useAuthStore((state) => state);
+  const router = useRouter();
   const url_image = "https://media.themoviedb.org/t/p/w440_and_h660_face";
   const url_image1 = "https://media.themoviedb.org/t/p/w1066_and_h600_bestv2";
 
@@ -17,7 +19,11 @@ export default function PageLogout({ params }) {
     (async () => {
       setLoading(true);
       const resMovies = await getMovieById(params.id);
-      if (resMovies.id) setData(resMovies);
+      if (resMovies.id && isAuth) {
+        setData(resMovies);
+      }else{
+        router("/");
+      }
       setLoading(false);
     })();
   }, []);

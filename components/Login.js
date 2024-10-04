@@ -2,12 +2,17 @@ import { loadingStore, useAuthStore } from "@/store";
 import { useForm } from "react-hook-form";
 import { Back, Forward, Person } from "./Icons";
 import { login } from "@/api/auth";
+import { useEffect } from "react";
 
 export default function Login({ setView }) {
   const { setLoading } = loadingStore((state) => state);
   const { setError, errors, setToken } = useAuthStore((state) => state);
 
   const { register, handleSubmit } = useForm();
+
+  useEffect(() => {
+    setError(null);
+  }, []);
 
   const onSubmit = async (formData) => {
     setLoading(true);
@@ -20,7 +25,7 @@ export default function Login({ setView }) {
       if (response.access_token) {
         setToken({
           token: response.access_token,
-          email: formData.email
+          email: formData.email,
         });
         setView("popular");
       } else {
@@ -106,7 +111,7 @@ export default function Login({ setView }) {
             Enteryour credentials and let the cinematic adventure begin!
           </p>
 
-          <Person color="var(--text-color)"/>
+          <Person color="var(--text-color)" />
         </div>
       </div>
     </div>
