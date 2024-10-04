@@ -1,22 +1,25 @@
-import { useAuthStore } from "@/store";
+import { useAuthStore, useTheme } from "@/store";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function Header({ setView, view, buttons = true }) {
   const { isAuth, logout, email } = useAuthStore((state) => state);
-  const router = useRouter
+  const { isDarkMode, toggleDarkMode, setLanguage, language } = useTheme();
 
   return (
-    <nav className="flex flex-col  lg:flex-row justify-between items-center gap-7 p-4 bg-black">
+    <nav className="flex flex-col lg:flex-row justify-between items-center gap-7 p-4 bg-black text-white">
       <div className="flex space-x-4 items-center">
-        <Link href="/" className="text-2xl font-bold">QUICKBET MOVIES</Link>
+        <Link href="/" className="text-2xl font-bold">
+          QUICKBET MOVIES
+        </Link>
         {isAuth && buttons && (
           <>
             <button
               onClick={() => setView("popular")}
               className={`hover:text-[#F0B90B] ${
-                view == "popular" ? "p-2 border-2 rounded-md border-[#F0B90B] text-[#F0B90B]" : ""
+                view == "popular"
+                  ? "p-2 border-2 rounded-md border-[#F0B90B] text-[#F0B90B]"
+                  : ""
               }`}
             >
               Popular
@@ -24,7 +27,9 @@ export default function Header({ setView, view, buttons = true }) {
             <button
               onClick={() => setView("favorites")}
               className={`hover:text-[#F0B90B] ${
-                view == "favorites" ? "p-2 border-2 rounded-md border-[#F0B90B] text-[#F0B90B]" : ""
+                view == "favorites"
+                  ? "p-2 border-2 rounded-md border-[#F0B90B] text-[#F0B90B]"
+                  : ""
               }`}
             >
               Favorites
@@ -60,33 +65,28 @@ export default function Header({ setView, view, buttons = true }) {
           </>
         )}
         <div className="flex gap-2 space-x-4 items-center">
-          <Theme />
-          <Language />
+          <button
+            className={`flex items-center w-[50px] h-[30px] rounded-[50px] text-[25px] 
+        ${isDarkMode ? "justify-end bg-[#4caf50]" : "justify-start bg-[#ccc]"}`}
+            onClick={() => toggleDarkMode(!isDarkMode)}
+          >
+            <div>{isDarkMode ? "🌙" : "☀️"}</div>
+          </button>
+          <Language setLanguage={setLanguage} language={language} />
         </div>
       </div>
     </nav>
   );
 }
 
-const Theme = () => {
-  const [dark, setDark] = useState(false);
-  return (
-    <button
-      className={`flex items-center w-[50px] h-[30px] rounded-[50px] text-[25px] 
-        ${dark ? "justify-end bg-[#4caf50]" : "justify-start bg-[#ccc]"}`}
-      onClick={() => setDark(!dark)}
-    >
-      <div>{dark ? "🌙" : "☀️"}</div>
-    </button>
-  );
-};
-
-const Language = () => {
-  const [language, setLanguage] = useState("es");
+const Language = ({ language, setLanguage }) => {
   return (
     <div className="flex items-center gap-1">
       <button
-        onClick={() => setLanguage("es")}
+        onClick={() => {
+          setLanguage("es");
+          location.reload();
+        }}
         className={`${
           language == "es" ? "border border-white p-1 rounded-md" : ""
         }`}
@@ -94,7 +94,10 @@ const Language = () => {
         Español
       </button>
       <button
-        onClick={() => setLanguage("en")}
+        onClick={() => {
+          setLanguage("en");
+          location.reload();
+        }}
         className={`${
           language == "en" ? "border border-white p-1 rounded-md" : ""
         }`}

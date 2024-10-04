@@ -8,7 +8,7 @@ export default function Target({ data, selectFavorite, favorite = false }) {
   const { isAuth } = useAuthStore((state) => state);
 
   return (
-    <div className="w-[220px] bg-[#262626] rounded-lg shadow-md overflow-hidden">
+    <div className="w-[220px] bg-[var(--bg-color2)] rounded-lg shadow-md overflow-hidden">
       <Link href={`/details/${data.id}`}>
         <img
           className="w-full h-64 object-cover"
@@ -18,7 +18,7 @@ export default function Target({ data, selectFavorite, favorite = false }) {
       </Link>
 
       <div className="p-4">
-        <p className="text-xl font-semibold">{data.original_title ?? "Name"}</p>
+        <p className="text-xl font-semibold">{data.title ?? "Name"}</p>
 
         <p className="text-sm mb-4">
           {format(

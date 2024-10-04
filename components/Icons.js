@@ -95,14 +95,26 @@ export function Loading() {
   );
 }
 
-export function DeleteFilter({color="white"}) {
+export function DeleteFilter({ color = "white" }) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 100 100">
-      <circle cx="50" cy="50" r="40" stroke={color} strokeWidth="2" fill="none" />
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="40"
+      height="40"
+      viewBox="0 0 100 100"
+    >
+      <circle
+        cx="50"
+        cy="50"
+        r="40"
+        stroke={color}
+        strokeWidth="2"
+        fill="none"
+      />
       <line x1="30" y1="30" x2="70" y2="70" stroke={color} strokeWidth="2" />
       <line x1="30" y1="70" x2="70" y2="30" stroke={color} strokeWidth="2" />
     </svg>
-  )
+  );
 }
 
 export function LoadingIcon() {
@@ -113,6 +125,16 @@ export function LoadingIcon() {
   );
 }
 
-
-
-
+export function Person({color}) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width="100"
+      height="100"
+      fill={color}
+    >
+      <path d="M12 0c2.21 0 4 1.79 4 4s-1.79 4-4 4-4-1.79-4-4 1.79-4 4-4zm0 10c3.33 0 10 1.67 10 5v1h-20v-1c0-3.33 6.67-5 10-5z" />
+    </svg>
+  );
+}

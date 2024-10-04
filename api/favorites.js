@@ -1,4 +1,6 @@
+import { useTheme } from "@/store";
 import { authApi } from "./axios";
+const language = useTheme.getState().language;
 
 export const setMovieFavorite = async (movieId = "") => {
   try {
@@ -38,7 +40,7 @@ export const getAllMoviesWithFavorites = async (query = "") => {
 
   export const getMovieById = async (movieId = "") => {
     try {
-      const response = await authApi.get(`/favorites/getById/${movieId}`);
+      const response = await authApi.get(`/favorites/getById/${movieId}?language=${language}`);
       return response.data;
     } catch (error) {
       return error;

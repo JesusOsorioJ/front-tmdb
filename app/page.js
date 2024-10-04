@@ -6,20 +6,23 @@ import PageFavorites from "@/components/PageFavorites";
 import PageLogin from "@/components/PageLogin";
 import PageLogout from "@/components/PageLogout";
 import Register from "@/components/Register";
-import { useAuthStore, loadingStore } from "@/store";
+import { useAuthStore, loadingStore, useTheme } from "@/store";
 import { useState } from "react";
 
 export default function Home() {
   const { isAuth } = useAuthStore((state) => state);
   const { loading } = loadingStore((state) => state);
-
+  const { isDarkMode } = useTheme();
   const [view, setView] = useState("popular");
 
   return (
-    <div className="">
+    <div
+      id={isDarkMode ? "dark" : ""}
+      className="text-[var(--text-color)] placeholder-[var(--text-color)]"
+    >
       {loading && <Loading />}
       <Header setView={setView} view={view} />
-      <div className="relative text-white ">
+      <div className="relative">
         {view == "login" && <Login setView={setView} />}
         {view == "register" && <Register setView={setView} />}
         {isAuth ? (

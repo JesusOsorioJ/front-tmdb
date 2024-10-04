@@ -23,7 +23,7 @@ export default function PageLogout() {
 
   return (
     <div>
-      <div className="relative p-6 flex items-center gap-10 bg-gradient-to-t from-[#000000] to-[#fff0] overflow-hidden">
+      <div className="relative p-6 flex items-center gap-10 bg-gradient-to-t from-[#000000] to-[#fff0] overflow-hidden text-white">
         <img
           className="absolute top-0 right-0 w-full -z-10"
           src={`${url_image1}/dvBCdCohwWbsP5qAaglOXagDMtk.jpg`}
@@ -73,7 +73,7 @@ export default function PageLogout() {
         </div>
       </div>
 
-      <main className="flex flex-col gap-[20px] p-10 bg-[#454545]">
+      <main className="flex flex-col gap-[20px] p-10 bg-[var(--bg-color1)]">
           <p className="text-2xl font-bold mx-10">Movies</p>
           <div className="flex flex-wrap justify-center gap-[20px]">
             {data.results.map((d, i) => (

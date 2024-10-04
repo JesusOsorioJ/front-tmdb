@@ -14,6 +14,24 @@ export const loadingStore = create(
   )
 );
 
+export const useTheme = create(
+  persist(
+    (set) => ({
+      isDarkMode: false,
+      language: "en",
+      toggleDarkMode: (value) =>
+        set(() => ({
+          isDarkMode: value,
+        })),
+      setLanguage: (value) =>
+        set(() => ({
+          language: value,
+        })),
+    }),
+    { name: "theme" }
+  )
+)
+
 export const useAuthStore = create(
   persist(
     (set) => ({

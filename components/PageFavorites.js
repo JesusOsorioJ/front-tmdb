@@ -25,7 +25,7 @@ export default function PageFavorites() {
   };
 
   return (
-    <div className="flex flex-col gap-[20px] p-10 bg-[#454545] w-full">
+    <div className="flex flex-col gap-[20px] p-10 bg-[var(--bg-color1)] w-full">
       <p className="text-2xl font-bold mx-10">Favorites</p>
       <div className="flex flex-wrap gap-[20px]">
         {data.map((d, i) => (

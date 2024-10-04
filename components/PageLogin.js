@@ -98,7 +98,7 @@ export default function PageLogin() {
           src={`${url_image1}/dvBCdCohwWbsP5qAaglOXagDMtk.jpg`}
           alt=""
         />
-        <div className="flex flex-col lg:flex-row w-full gap-6 justify-between items-center ">
+        <div className="text-white flex flex-col lg:flex-row w-full gap-6 justify-between items-center ">
           <div className="flex flex-col gap-6">
             <div className="flex flex-col">
               <p className="text-4xl font-bold">
@@ -116,14 +116,14 @@ export default function PageLogin() {
       </div>
 
       <div className="flex flex-col md:flex-row">
-        <aside className="flex flex-col gap-5  bg-[#262626] p-10 py-9">
+        <aside className="flex flex-col gap-5  bg-[var(--bg-color2)] p-10 py-9">
           <div className="flex flex-col gap-2">
             <label>Search</label>
             <input
               type="text"
               placeholder="Search"
               onChange={(e) => selectSearch(e.target.value)}
-              className="w-full p-2 bg-[#1C1C1C] rounded-lg  placeholder-white text-white"
+              className="w-full p-2 bg-[var(--bg-color3)] rounded-lg text-[var(--text-color)] placeholder-[var(--text-color)]"
             />
           </div>
 
@@ -136,19 +136,19 @@ export default function PageLogin() {
                   placeholder="--"
                   value={genre?.name ?? null}
                   readOnly
-                  className="w-full p-2 bg-[#1C1C1C] placeholder-white text-white"
+                  className="w-full p-2 bg-[var(--bg-color3)] text-[var(--text-color)] placeholder-[var(--text-color)]"
                 />
                 <button onClick={() => selectGenres(initGenre)}>
-                  <DeleteFilter />
+                  <DeleteFilter color="var(--text-color)"/>
                 </button>
               </div>
 
-              <div className="flex flex-col items-start p-3 bg-[#1C1C1C] max-h-[300px] min-w-[180px] overflow-auto">
+              <div className="flex flex-col items-start p-3 bg-[var(--bg-color3)] max-h-[300px] min-w-[180px] overflow-auto">
                 {genres.map((d, i) => (
                   <button
                     className={`${
                       genre?.id == d.id
-                        ? "text-left bg-[#0f0f0f] p-2 w-full"
+                        ? "text-left bg-[var(--bg-color4)] p-2 w-full"
                         : "p-1"
                     }`}
                     key={i}
@@ -162,7 +162,7 @@ export default function PageLogin() {
           </div>
         </aside>
 
-        <main className="flex flex-col gap-[20px] p-10 bg-[#454545] w-full">
+        <main className="flex flex-col gap-[20px] p-10 bg-[var(--bg-color1)] w-full">
           <p className="text-2xl font-bold mx-10">Movies</p>
           {loadingList ? (
             <LoadingIcon />

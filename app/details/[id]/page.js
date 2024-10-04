@@ -52,7 +52,7 @@ export default function PageLogout({ params }) {
         </div>
         <div className="flex flex-col gap-6">
           <div className="flex flex-col">
-            <h1 className="text-4xl font-bold">{data.original_title ?? ""}</h1>
+            <h1 className="text-4xl font-bold">{data.title ?? ""}</h1>
             <div className="flex gap-4">
               <p>
                 {format(data.release_date ?? "March 10, 2024", "MMMM dd, yyyy")}{" "}

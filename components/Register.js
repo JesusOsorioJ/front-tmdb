@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { Back, Forward } from "./Icons";
+import { Back, Forward, Person } from "./Icons";
 import { loadingStore } from "@/store";
 import { registerUser } from "@/api/auth";
 
@@ -40,13 +40,13 @@ export default function Register({ setView }) {
         <div className="flex flex-col items-center w-full md:w-1/2 p-10">
           <button
             onClick={() => setView("")}
-            className="flex items-center my-6 self-start"
+            className="flex items-center my-6 self-start text-white"
           >
             <Back />
             Back
           </button>
 
-          <div className="flex space-x-2 rounded-lg bg-[#242222] w-fit m-3">
+          <div className="flex space-x-2 rounded-lg bg-[#242222] text-white w-fit m-3">
             <button
               type="button"
               className="bg-yellow-500 py-2 px-4 rounded-lg"
@@ -66,37 +66,37 @@ export default function Register({ setView }) {
             onSubmit={handleSubmit(onSubmit)}
             className="flex flex-col gap-4 w-full m-8"
           >
-            <p className="text-center">We love having you back</p>
+            <p className="text-center text-white">We love having you back</p>
             <input
               type="name"
               placeholder="Name"
               required={true}
               {...register("name")}
-              className="w-full p-3 rounded-md focus:outline-none"
+              className="w-full p-3 rounded-md focus:outline-none bg-[var(--bg-color3)] text-[var(--text-color)] placeholder-[var(--text-color)]"
             />
             <input
               type="email"
               placeholder="Email"
               required={true}
               {...register("email")}
-              className="w-full p-3 rounded-md focus:outline-none"
+              className="w-full p-3 rounded-md focus:outline-none bg-[var(--bg-color3)] text-[var(--text-color)] placeholder-[var(--text-color)]"
             />
             <input
               type="password"
               placeholder="Password"
               required={true}
               {...register("password")}
-              className="w-full p-3 rounded-md focus:outline-none"
+              className="w-full p-3 rounded-md focus:outline-none bg-[var(--bg-color3)] text-[var(--text-color)] placeholder-[var(--text-color)]"
             />
-            <button className="w-full bg-yellow-500 py-3 rounded-lg flex items-center justify-center">
+            <button className="text-white w-full bg-yellow-500 py-3 rounded-lg flex items-center justify-center">
               Continue <Forward />
             </button>
-            <p className="text-center  text-sm">
+            <p className="text-center text-white text-sm">
               For any questions, reach out to support@quickbetmovies.com
             </p>
           </form>
         </div>
-        <div className="hidden md:flex flex-col justify-center items-center w-1/2 bg-[#1d1d1d]  gap-10 rounded-lg p-7 text-center">
+        <div className="hidden md:flex flex-col justify-center items-center w-1/2 bg-[var(--bg-color2)]  gap-10 rounded-lg p-7 text-center">
           <h2 className="text-2xl font-bold">
             Welcome back to Quickbet Movies!
           </h2>
@@ -105,11 +105,7 @@ export default function Register({ setView }) {
             your credentials and let the cinematic adventure begin!
           </p>
 
-          <img
-            src="https://path-to-your-image.png"
-            alt="Illustration"
-            className="w-32 h-32"
-          />
+          <Person color="var(--text-color)"/>
         </div>
       </div>
     </div>
