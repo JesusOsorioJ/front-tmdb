@@ -29,10 +29,10 @@ export default function PageLogout() {
           src={`${url_image1}/dvBCdCohwWbsP5qAaglOXagDMtk.jpg`}
           alt="Kung Fu Panda"
         />
-        <div className="flex flex-col gap-4">
+        <div className="hidden xl:flex flex-col gap-4">
           <img
             src={`${url_image}/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg`}
-            className="w-48 rounded-lg"
+            className="w-48 rounded-lg "
             alt="Kung Fu Panda"
           />
           <button className="p-2 rounded-md bg-[#F0B90B] text-black">

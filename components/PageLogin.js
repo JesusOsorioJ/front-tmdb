@@ -98,7 +98,7 @@ export default function PageLogin() {
           src={`${url_image1}/dvBCdCohwWbsP5qAaglOXagDMtk.jpg`}
           alt=""
         />
-        <div className="flex w-full gap-6 justify-between items-center ">
+        <div className="flex flex-col lg:flex-row w-full gap-6 justify-between items-center ">
           <div className="flex flex-col gap-6">
             <div className="flex flex-col">
               <p className="text-4xl font-bold">
@@ -115,7 +115,7 @@ export default function PageLogin() {
         </div>
       </div>
 
-      <div className="flex">
+      <div className="flex flex-col md:flex-row">
         <aside className="flex flex-col gap-5  bg-[#262626] p-10 py-9">
           <div className="flex flex-col gap-2">
             <label>Search</label>

@@ -8,7 +8,7 @@ export default function Header({ setView, view, buttons = true }) {
   const router = useRouter
 
   return (
-    <nav className="flex justify-between items-center p-4 bg-black">
+    <nav className="flex flex-col  lg:flex-row justify-between items-center gap-7 p-4 bg-black">
       <div className="flex space-x-4 items-center">
         <Link href="/" className="text-2xl font-bold">QUICKBET MOVIES</Link>
         {isAuth && buttons && (
@@ -32,7 +32,7 @@ export default function Header({ setView, view, buttons = true }) {
           </>
         )}
       </div>
-      <div className="flex space-x-4 items-center">
+      <div className="flex flex-col sm:flex-row gap-4 items-center">
         {isAuth ? (
           <div className="flex gap-3 items-center">
             <p>{email}</p>
@@ -59,8 +59,10 @@ export default function Header({ setView, view, buttons = true }) {
             </button>
           </>
         )}
-        <Theme />
-        <Language />
+        <div className="flex gap-2 space-x-4 items-center">
+          <Theme />
+          <Language />
+        </div>
       </div>
     </nav>
   );

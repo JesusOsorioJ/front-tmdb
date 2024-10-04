@@ -4,14 +4,13 @@ import { loadingStore } from "@/store";
 import { registerUser } from "@/api/auth";
 
 export default function Register({ setView }) {
-  const { setLoading  } = loadingStore((state) => state);
+  const { setLoading } = loadingStore((state) => state);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-
 
   const onSubmit = async (formData) => {
     setLoading(true);
@@ -22,7 +21,7 @@ export default function Register({ setView }) {
         password: formData.password,
       };
       const response = await registerUser(payload);
-      setView('login')
+      setView("login");
     } catch (error) {
       console.log(error);
     }
@@ -38,8 +37,11 @@ export default function Register({ setView }) {
       />
 
       <div className="w-full max-w-4xl rounded-lg bg-opacity-50 backdrop-blur-md flex z-10 h-fit">
-        <div className="w-1/2 p-3 flex flex-col items-center">
-          <button onClick={() => setView("")} className="flex items-center m-6 self-start">
+        <div className="flex flex-col items-center w-full md:w-1/2 p-10">
+          <button
+            onClick={() => setView("")}
+            className="flex items-center my-6 self-start"
+          >
             <Back />
             Back
           </button>
@@ -60,7 +62,10 @@ export default function Register({ setView }) {
             </button>
           </div>
 
-          <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4 w-full m-8">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="flex flex-col gap-4 w-full m-8"
+          >
             <p className="text-center">We love having you back</p>
             <input
               type="name"
@@ -91,8 +96,7 @@ export default function Register({ setView }) {
             </p>
           </form>
         </div>
-
-        <div className="w-1/2  bg-[#1d1d1d]  flex flex-col justify-center items-center gap-10 rounded-lg p-7 text-center">
+        <div className="hidden md:flex flex-col justify-center items-center w-1/2 bg-[#1d1d1d]  gap-10 rounded-lg p-7 text-center">
           <h2 className="text-2xl font-bold">
             Welcome back to Quickbet Movies!
           </h2>

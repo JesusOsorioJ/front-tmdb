@@ -42,10 +42,10 @@ export default function Login({ setView }) {
       />
 
       <div className="w-full max-w-4xl rounded-lg bg-opacity-50 backdrop-blur-md flex z-10 h-fit">
-        <div className="w-1/2 p-3 flex flex-col items-center">
+        <div className="flex flex-col items-center w-full md:w-1/2 p-10">
           <button
             onClick={() => setView("")}
-            className="flex items-center m-6 self-start"
+            className="flex items-center my-6 self-start"
           >
             <Back />
             Back
@@ -98,7 +98,7 @@ export default function Login({ setView }) {
           </form>
         </div>
 
-        <div className="w-1/2  bg-[#1d1d1d]  flex flex-col justify-center items-center gap-10 rounded-lg p-7 text-center">
+        <div className="hidden md:flex flex-col justify-center items-center w-1/2 bg-[#1d1d1d]  gap-10 rounded-lg p-7 text-center">
           <h2 className="text-2xl font-bold">
             Welcome back to Quickbet Movies!
           </h2>
