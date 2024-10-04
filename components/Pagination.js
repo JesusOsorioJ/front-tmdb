@@ -7,16 +7,14 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
     }
   };
 
-  // Generar las páginas para mostrar: la actual, la siguiente, la anterior y la última.
   const pagesToShow = [];
-  if (currentPage > 1) pagesToShow.push(currentPage - 1); // Página anterior
-  pagesToShow.push(currentPage); // Página actual
-  if (currentPage < totalPages) pagesToShow.push(currentPage + 1); // Página siguiente
+  if (currentPage > 1) pagesToShow.push(currentPage - 1);
+  pagesToShow.push(currentPage);
+  if (currentPage < totalPages) pagesToShow.push(currentPage + 1);
 
   return (
     <nav aria-label="Pagination">
       <ul className="inline-flex items-center space-x-2 justify-center w-full ">
-        {/* Botón "Anterior" */}
         <li>
           <button
             disabled={currentPage === 1}
@@ -27,7 +25,6 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
           </button>
         </li>
 
-        {/* Números de páginas */}
         {pagesToShow.map((page) => (
           <li key={page}>
             <button
